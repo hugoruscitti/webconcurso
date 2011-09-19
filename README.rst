@@ -1,1 +1,1 @@
-This is a sample Flask application running on fluxflex.
+Sitio web para publicitar el concurso de juegos.
