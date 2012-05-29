@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{{ url_for('.static', filename='style/style.css') }}" type="text/css">
+
+    <script type="text/javascript" src="{{ url_for('.static', filename='jquery-1.4.4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('.static', filename='simple.carousel.js') }}"></script>
+
+    <title>Patin!</title>
+
+    <script>
+        jQuery(document).ready(function() {
+            $("ul.imagenes").simplecarousel({
+                width: 652,
+                height: 370,
+                visible: 1,
+                auto: 5000,
+                pagination: true
+            });
+        });
+    </script>
+
+    <style>
+        .imagenes {
+            margin:0;
+            padding:0;
+            list-style:none;
+            height:400px;
+            overflow:hidden;
+        }
+        
+        .imagenes li {
+            text-align:left;
+            display:block;
+            width:697px;
+            height:400px;
+        }
+
+        .carousel-pagination li {
+            display:block;
+            width:10px;
+            height:10px;
+            margin-right:5px;
+            cursor:pointer;
+            float:left;
+            background:#333;
+        }
+        
+        .carousel-pagination .carousel-pagination-active {
+            background:#ff0000;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id='container'>
+
+    <div id='titulo'>
+    <img src='{{ url_for('.static', filename='logo.png') }}'>
+        <h1>Patín</h1>
+        Una herramienta para aprender y construir programando.
+        <br style='clear: both'/>
+    </div>
+
+    <div id='content'>
+    
+            Hello world !
+    
+    </div>
+
+    <div id='footer'>
+    <br/>
+    <small>se feliz ;)</small>
+    </div>
+
+</div>
+
+</body>
+</html>
+
