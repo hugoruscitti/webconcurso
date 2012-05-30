@@ -6,7 +6,15 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html', model=[])
+    return render_template('index.html')
+
+@app.route('/acerca')
+def acerca():
+    return render_template('acerca.html')
+
+@app.route('/proyectos')
+def proyectos():
+    return render_template('proyectos.html')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

@@ -1,0 +1,37 @@
+{% extends "site_base.html" %}
+{% block body %}
+<script>
+function borrar(registro)
+{
+    if(confirm("Estas seguro de querer borrar este proyecto?"))
+        location.href = '/proyecto/borrar/' + registro;
+}
+</script>
+<h1>Mis proyectos</h1>
+
+<ul>
+    <li><a href='/proyecto/crear'>Crear un proyecto nuevo</a>
+</ul>
+
+{% if cantidad_proyectos %}
+
+<p>Estás participando de este concurso con {{ cantidad_proyectos }} proyecto(s).
+
+<table>
+    <tr>
+        <th>Nombre del proyecto</th>
+        <th>Acciones</th>
+    </tr>
+
+    {% for proyecto in proyectos %}
+        <tr>
+            <td>{{ proyecto.nombre }}</td>
+            <td><a href='/proyecto/{{proyecto.id}}'>ver</a> - <a href='/proyecto/editar/{{proyecto.id}}'>editar</a> - <a onclick='borrar({{proyecto.id}});return false' href='#'>borrar</a></td>
+        </tr>
+	{% endfor %}
+</table>
+{% else %}
+    <p>Aún no has publicado un proyecto.
+{% endif %}
+
+{% endblock %}

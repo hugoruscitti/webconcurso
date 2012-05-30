@@ -1,0 +1,107 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="{{ url_for('.static', filename='style/style.css') }}" type="text/css">
+
+    <script type="text/javascript" src="{{ url_for('.static', filename='jquery-1.4.4.min.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('.static', filename='simple.carousel.js') }}"></script>
+
+    <title>Concurso de videojuegos - {% block head_title %}{% endblock %}</title>
+
+    <script>
+        jQuery(document).ready(function() {
+            $("ul.imagenes").simplecarousel({
+                width: 652,
+                height: 370,
+                visible: 1,
+                auto: 5000,
+                pagination: true
+            });
+        });
+    </script>
+
+    <style>
+        .imagenes {
+            margin:0;
+            padding:0;
+            list-style:none;
+            height:400px;
+            overflow:hidden;
+        }
+        
+        .imagenes li {
+            text-align:left;
+            display:block;
+            width:697px;
+            height:400px;
+        }
+
+        .carousel-pagination li {
+            display:block;
+            width:10px;
+            height:10px;
+            margin-right:5px;
+            cursor:pointer;
+            float:left;
+            background:#333;
+        }
+        
+        .carousel-pagination .carousel-pagination-active {
+            background:#ff0000;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id='container'>
+
+    <div id='titulo'>
+    <img src='{{ url_for('.static', filename='logo.png') }}'>
+        <h1>Concurso de videojuegos</h1>
+        <h4>Enero, Febrero y Marzo del 2012</h4>
+        <br style='clear: both'/>
+    </div>
+
+<div id='menu'>
+    <ul>
+        <li><a href='/'>Principal</a></li>
+        <li><a href='/acerca'>Detalles</a></li>
+        <li><a href='/proyectos'>Proyectos</a></li>
+    </ul>
+</div>
+
+    <div id='content'>
+        {% block content %}{% endblock %}
+    </div>
+
+
+    <div id='footer'>
+    <p>
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://concurso.ep.io/" data-via="hugoruscitti" data-lang="es">Twittear</a>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<!-- Coloca esta etiqueta en el lugar en el que deseas que se publique el botón de +1. -->
+<g:plusone size="small"></g:plusone>
+
+<!-- Coloca esta función de publicación donde corresponda. -->
+<script type="text/javascript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+
+<p>
+    Concurso organizado por la comunidad <a href='http://www.losersjuegos.com.ar'>losersjuegos</a>.
+
+    </div>
+
+</div>
+
+
+</body>
+</html>
+

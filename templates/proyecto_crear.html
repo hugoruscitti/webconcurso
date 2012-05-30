@@ -1,0 +1,21 @@
+{% extends "site_base.html" %}
+{% block body %}
+<h1>{{tipo|capfirst}} proyecto</h1>
+
+
+<form method="post" action="/proyecto/crear" enctype="multipart/form-data">
+
+{% csrf_token %}
+        <input id='id' name='id' type='hidden' value={{id}}></input>
+        {% for field in form %}
+            <div class='unerror'>{{ field.errors }}</div>
+
+            {{ field.label_tag }}{{ field }}
+        {% endfor %}
+    <p>
+    <div style='text-align: center'>
+<button type="submit"> {{tipo|capfirst }} el proyecto</button>
+</div>
+</form>
+
+{% endblock %}

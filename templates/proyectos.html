@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Proyectos que participan</h1>
+
+<p>
+Esta es una lista de los proyectos que se han
+propuesto para participar del concurso.
+
+<p>
+Ten en cuenta que hay proyectos grupales, y un
+representante puede proponer varios proyectos si
+quiere:
+
+
+{% if proyectos.count > 0 %}
+
+<p>Hay {{ proyectos.count }} proyectos propuestos.
+
+<table>
+    <tr>
+        <th>Nombre del proyecto</th>
+        <th>Representante</th>
+    </tr>
+
+    {% for proyecto in proyectos %}
+        <tr>
+            <td><a href='/proyecto/{{proyecto.id}}'>{{ proyecto.nombre }}</a></td>
+            <td><a href='/usuario/{{proyecto.usuario.id}}'>{{ proyecto.usuario.username }}</a></td>
+        </tr>
+	{% endfor %}
+</table>
+{% else %}
+    <p>Aún no hay proyectos que participen.
+{% endif %}
+
+
+{% endblock %}

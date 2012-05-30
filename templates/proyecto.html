@@ -1,0 +1,24 @@
+{% extends "site_base.html" %}
+{% block body %}
+<h1>Proyecto: {{ proyecto.nombre }} </h1>
+
+<dl>
+    <dt>Nombre:</dt>
+    <dd>{{ proyecto }}</dd>
+
+    <dt>Propuesto por:</dt>
+    <dd><a href='/usuario/{{proyecto.usuario.id}}'>{{ proyecto.usuario.username}}</a></dd>
+
+    <dt>Link descarga, repositorio o blog</dt>
+    <dd><a href='{{ proyecto.url }}'>{{proyecto.url}}</a></dd>
+
+    <dt>Detalle:</dt>
+    <dd>{{ proyecto.detalle|safe }}</dd>
+
+<!--
+    <dt>Captura:</dt>
+    <dd><img src='/static/imagenes/{{ proyecto.imagen }}'/></dd>
+    -->
+
+</dl>
+{% endblock %}
